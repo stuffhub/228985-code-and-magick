@@ -52,7 +52,12 @@ window.renderStatistics = function(ctx, players, times) {
     );
   }
   for (var j = 0; j < players.length; j++) {
-    ctx.fillStyle = j === 0 ? OWN_GRAPH_COLOR : 'rgba(10, 11, 133, 1';
-    ctx.fillRect((CLOUD_X + GRAPH_GAP) + (GRAPH_WIDTH + GRAPH_GAP) * j, (CLOUD_HEIGHT - TITLE_Y) - ((GRAPH_HEIGHT * times[j]) / maxTime), GRAPH_WIDTH, (GRAPH_HEIGHT * times[j]) / maxTime);
+    ctx.fillStyle = j === 0 ? OWN_GRAPH_COLOR : "rgba(10, 11, 133, 1";
+    ctx.fillRect(
+      CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * j,
+      CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[j]) / maxTime,
+      GRAPH_WIDTH,
+      (GRAPH_HEIGHT * times[j]) / maxTime
+    );
   }
 };

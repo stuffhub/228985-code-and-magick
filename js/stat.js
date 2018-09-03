@@ -40,26 +40,19 @@ window.renderStatistics = function(ctx, players, times) {
   var maxTime = getMaxValue(times);
 
   for (var i = 0; i < players.length; i++) {
-    if (i === 0) {
-      ctx.fillStyle = OWN_GRAPH_COLOR;
-    } else {
-      ctx.fillStyle = "#000";
-    }
     ctx.fillText(
       players[i],
       CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * i,
       CLOUD_HEIGHT - GAP
-    );
-    ctx.fillRect(
-      CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * i,
-      CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[i]) / maxTime,
-      GRAPH_WIDTH,
-      (GRAPH_HEIGHT * times[i]) / maxTime
     );
     ctx.fillText(
       Math.round(times[i]),
       CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * i,
       CLOUD_HEIGHT - TITLE_Y - GAP - (GRAPH_HEIGHT * times[i]) / maxTime
     );
+  }
+  for (var j = 0; j < players.length; j++) {
+    ctx.fillStyle = j === 0 ? OWN_GRAPH_COLOR : 'rgba(10, 11, 133, 1';
+    ctx.fillRect((CLOUD_X + GRAPH_GAP) + (GRAPH_WIDTH + GRAPH_GAP) * j, (CLOUD_HEIGHT - TITLE_Y) - ((GRAPH_HEIGHT * times[j]) / maxTime), GRAPH_WIDTH, (GRAPH_HEIGHT * times[j]) / maxTime);
   }
 };

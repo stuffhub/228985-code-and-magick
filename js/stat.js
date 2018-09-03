@@ -53,7 +53,7 @@ window.renderStatistics = function(ctx, players, times) {
   }
   for (var j = 0; j < players.length; j++) {
     ctx.fillStyle =
-      players[j] === "Вы" ? OWN_GRAPH_COLOR : "rgba(10, 11, 133, 1";
+      players[j] === "Вы" ? OWN_GRAPH_COLOR : "rgba(10, 11, 133, 1)";
     ctx.fillRect(
       CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * j,
       CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[j]) / maxTime,

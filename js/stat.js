@@ -34,8 +34,8 @@ window.renderStatistics = function(ctx, players, times) {
   drawTable(ctx, CLOUD_X, CLOUD_Y, "#fff");
   ctx.font = "16px PT Mono";
   ctx.fillStyle = "#000";
-  ctx.fillText("Ура вы победили!", TITLE_X, TITLE_Y);
-  ctx.fillText("Список результатов:", TITLE_X, TITLE_Y + TITLE_GAP);
+  ctx.fillText("Ура вы победили!", CLOUD_X + GRAPH_GAP, TITLE_Y);
+  ctx.fillText("Список результатов:", CLOUD_X + GRAPH_GAP, TITLE_Y + TITLE_GAP);
 
   var maxTime = getMaxValue(times);
 
@@ -52,8 +52,13 @@ window.renderStatistics = function(ctx, players, times) {
     );
   }
   for (var j = 0; j < players.length; j++) {
-    ctx.fillStyle =
-      players[j] === "Вы" ? OWN_GRAPH_COLOR : "rgba(10, 11, 133, 1)";
+    if (players[j] === "Вы") {
+      ctx.fillStyle = OWN_GRAPH_COLOR;
+    } else if (times[j] === maxTime) {
+      ctx.fillStyle = "rgba(0, 0, 204, 1)";
+    } else {
+      ctx.fillStyle = "rgba(0, 0, 204, 0." + Math.round(times[j] / 100) + ")";
+    }
     ctx.fillRect(
       CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * j,
       CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[j]) / maxTime,

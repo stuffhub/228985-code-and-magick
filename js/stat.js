@@ -27,6 +27,14 @@ var getMaxValue = function (timesArray) {
   return maxValue;
 };
 
+var getGraphColor = function (isMy) {
+  var graphColor = OWN_GRAPH_COLOR;
+  if (isMy === 'Вы') {
+    graphColor = 'rgba(0, 0, 204, 0.' + Math.round(Math.random()) + ')';
+  }
+  return graphColor;
+};
+
 window.renderStatistics = function (ctx, players, times) {
   drawTable(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
   drawTable(ctx, CLOUD_X, CLOUD_Y, '#fff');
@@ -50,13 +58,7 @@ window.renderStatistics = function (ctx, players, times) {
     );
   }
   for (var j = 0; j < players.length; j++) {
-    if (players[j] === 'Вы') {
-      ctx.fillStyle = OWN_GRAPH_COLOR;
-    } else if (times[j] === maxTime) {
-      ctx.fillStyle = 'rgba(0, 0, 204, 1)';
-    } else {
-      ctx.fillStyle = 'rgba(0, 0, 204, 0.' + Math.round(times[j] / 100) + ')';
-    }
+    ctx.fillStyle = getGraphColor(players[j]);
     ctx.fillRect(
         CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * j,
         CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[j]) / maxTime,

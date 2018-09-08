@@ -27,12 +27,8 @@ var getMaxValue = function (timesArray) {
   return maxValue;
 };
 
-var getGraphColor = function (isMy) {
-  var graphColor = OWN_GRAPH_COLOR;
-  if (isMy === 'Вы') {
-    graphColor = 'rgba(0, 0, 204, 0.' + Math.round(Math.random()) + ')';
-  }
-  return graphColor;
+var getGraphColor = function (myScore) {
+  return myScore === 'Вы' ? OWN_GRAPH_COLOR : 'rgba(0, 0, 204, 0.' + Math.random().toFixed(2) + ')';
 };
 
 window.renderStatistics = function (ctx, players, times) {
@@ -58,7 +54,7 @@ window.renderStatistics = function (ctx, players, times) {
     );
   }
   for (var j = 0; j < players.length; j++) {
-    ctx.fillStyle = getGraphColor(players[j]);
+    ctx.fillStyle = getGraphColor(players[i]);
     ctx.fillRect(
         CLOUD_X + GRAPH_GAP + (GRAPH_WIDTH + GRAPH_GAP) * j,
         CLOUD_HEIGHT - TITLE_Y - (GRAPH_HEIGHT * times[j]) / maxTime,

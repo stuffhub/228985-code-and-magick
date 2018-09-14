@@ -35,27 +35,32 @@
   var userPanel = document.querySelector('.setup');
   userPanel.classList.remove('hidden');
 
-  var getRandomNumber = function (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  var getRandomNumber = function (value) {
+    return Math.round(Math.random() * value);
   };
 
   var wizardTemplate = document
     .querySelector('#similar-wizard-template')
     .content.querySelector('.setup-similar-item');
 
-  var listCharacters = [];
+  var getListCharacters = function () {
+    var arrayCharacters = [];
+    for (var i = 0; i < AMOUNT_OF_CHARACTER; i++) {
+      arrayCharacters.push({
+        name:
+          RANDOM_NAMES[getRandomNumber(RANDOM_NAMES.length - 1)] +
+          ' ' +
+          RANDOM_SURNAMES[getRandomNumber(RANDOM_SURNAMES.length - 1)],
+        coatColor:
+          RANDOM_COAT_COLORS[getRandomNumber(RANDOM_COAT_COLORS.length - 1)],
+        eyesColor:
+          RANDOM_EYES_COLOR[getRandomNumber(RANDOM_EYES_COLOR.length - 1)]
+      });
+    }
+    return arrayCharacters;
+  };
 
-  for (var i = 0; i < AMOUNT_OF_CHARACTER; i++) {
-    listCharacters.push({
-      name:
-        RANDOM_NAMES[getRandomNumber(0, RANDOM_NAMES.length - 1)] +
-        RANDOM_SURNAMES[getRandomNumber(0, RANDOM_SURNAMES.length - 1)],
-      coatColor:
-        RANDOM_COAT_COLORS[getRandomNumber(0, RANDOM_COAT_COLORS.length - 1)],
-      eyesColor:
-        RANDOM_EYES_COLOR[getRandomNumber(0, RANDOM_EYES_COLOR.length - 1)]
-    });
-  }
+  var listCharacters = getListCharacters();
 
   var makeWizard = function (wizard) {
     var wizardElement = wizardTemplate.cloneNode(true);

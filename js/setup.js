@@ -52,7 +52,7 @@
     var arrayCharacters = [];
     for (var i = 0; i < AMOUNT_OF_CHARACTER; i++) {
       arrayCharacters.push({
-        name: getRandomValue(RANDOM_NAMES) + ' ' + getRandomValue(RANDOM_NAMES),
+        name: getRandomValue(RANDOM_NAMES) + ' ' + getRandomValue(RANDOM_SURNAMES),
         coatColor: getRandomValue(RANDOM_COAT_COLORS),
         eyesColor: getRandomValue(RANDOM_EYES_COLOR)
       });

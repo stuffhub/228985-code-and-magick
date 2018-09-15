@@ -39,9 +39,8 @@
     return Math.round(Math.random() * value);
   };
 
-  var getRandomValue = function (array) {
-    var arrayLength = array.length - 1;
-    return array[getRandomNumber(arrayLength)];
+  var getRandomArrayValue = function (array) {
+    return array[getRandomNumber(array.length - 1)];
   };
 
   var wizardTemplate = document
@@ -52,9 +51,9 @@
     var arrayCharacters = [];
     for (var i = 0; i < AMOUNT_OF_CHARACTER; i++) {
       arrayCharacters.push({
-        name: getRandomValue(RANDOM_NAMES) + ' ' + getRandomValue(RANDOM_SURNAMES),
-        coatColor: getRandomValue(RANDOM_COAT_COLORS),
-        eyesColor: getRandomValue(RANDOM_EYES_COLOR)
+        name: getRandomArrayValue(RANDOM_NAMES) + ' ' + getRandomArrayValue(RANDOM_SURNAMES),
+        coatColor: getRandomArrayValue(RANDOM_COAT_COLORS),
+        eyesColor: getRandomArrayValue(RANDOM_EYES_COLOR)
       });
     }
     return arrayCharacters;

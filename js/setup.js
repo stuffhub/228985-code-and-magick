@@ -39,6 +39,11 @@
     return Math.round(Math.random() * value);
   };
 
+  var getRandomValue = function (array) {
+    var arrayLength = array.length - 1;
+    return array[getRandomNumber(arrayLength)];
+  };
+
   var wizardTemplate = document
     .querySelector('#similar-wizard-template')
     .content.querySelector('.setup-similar-item');
@@ -47,14 +52,9 @@
     var arrayCharacters = [];
     for (var i = 0; i < AMOUNT_OF_CHARACTER; i++) {
       arrayCharacters.push({
-        name:
-          RANDOM_NAMES[getRandomNumber(RANDOM_NAMES.length - 1)] +
-          ' ' +
-          RANDOM_SURNAMES[getRandomNumber(RANDOM_SURNAMES.length - 1)],
-        coatColor:
-          RANDOM_COAT_COLORS[getRandomNumber(RANDOM_COAT_COLORS.length - 1)],
-        eyesColor:
-          RANDOM_EYES_COLOR[getRandomNumber(RANDOM_EYES_COLOR.length - 1)]
+        name: getRandomValue(RANDOM_NAMES) + ' ' + getRandomValue(RANDOM_NAMES),
+        coatColor: getRandomValue(RANDOM_COAT_COLORS),
+        eyesColor: getRandomValue(RANDOM_EYES_COLOR)
       });
     }
     return arrayCharacters;
@@ -73,8 +73,8 @@
 
   var listWizards = userPanel.querySelector('.setup-similar-list');
   var fragmentWizards = document.createDocumentFragment();
-  for (var j = 0; j < listCharacters.length; j++) {
-    fragmentWizards.appendChild(makeWizard(listCharacters[j]));
+  for (var i = 0; i < listCharacters.length; i++) {
+    fragmentWizards.appendChild(makeWizard(listCharacters[i]));
   }
 
   listWizards.appendChild(fragmentWizards);

@@ -93,12 +93,12 @@
   var ENTER_KEYCODE = 13;
   var ESC_KEYCODE = 27;
 
-  var panelOpen = function (evt) {
+  var panelOpen = function () {
     userPanel.classList.remove('hidden');
     document.addEventListener('keydown', panelEscCloseHandler);
   };
 
-  var panelClose = function (evt) {
+  var panelClose = function () {
     userPanel.classList.add('hidden');
     document.removeEventListener('keydown', panelEscCloseHandler);
   };
@@ -135,15 +135,15 @@
   userPanelClose.addEventListener('click', panelClose);
 
   wizardCoat.addEventListener('click', function () {
-    colorizeWizard(RANDOM_COAT_COLORS, this, 'fill', 'coat-color');
+    colorizeWizard(RANDOM_COAT_COLORS, wizardCoat, 'fill', 'coat-color');
   });
 
   wizardEyes.addEventListener('click', function () {
-    colorizeWizard(RANDOM_EYES_COLOR, this, 'fill', 'eyes-color');
+    colorizeWizard(RANDOM_EYES_COLOR, wizardEyes, 'fill', 'eyes-color');
   });
 
   fireballs.addEventListener('click', function () {
-    colorizeWizard(RANDOM_FIREBALL_COLOR, this, 'background', 'fireball-color');
+    colorizeWizard(RANDOM_FIREBALL_COLOR, fireballs, 'background', 'fireball-color');
   });
 
   userPanelOpen.addEventListener('keydown', function (evt) {

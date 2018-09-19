@@ -16,7 +16,7 @@
   };
 
   var panelEscCloseHandler = function (evt) {
-    if (evt.keyCode === window.util.ESC_KEYCODE) {
+    if (evt.keyCode === window.constants.ESC_KEYCODE) {
       panelClose();
     }
   };
@@ -30,19 +30,19 @@
   userPanelClose.addEventListener('click', panelClose);
 
   userPanelOpen.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.util.ENTER_KEYCODE) {
+    if (evt.keyCode === window.constants.ENTER_KEYCODE) {
       panelOpen();
     }
   });
 
   userPanelClose.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.util.ENTER_KEYCODE) {
+    if (evt.keyCode === window.constants.ENTER_KEYCODE) {
       panelClose();
     }
   });
 
   userPanelSubmit.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === window.util.ENTER_KEYCODE) {
+    if (evt.keyCode === window.constants.ENTER_KEYCODE) {
       panelSubmit();
     }
   });

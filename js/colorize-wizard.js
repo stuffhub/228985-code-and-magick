@@ -17,7 +17,7 @@
 
   wizardCoat.addEventListener('click', function () {
     colorizeWizard(
-        window.util.RANDOM_COAT_COLORS,
+        window.constants.RANDOM_COAT_COLORS,
         wizardCoat,
         'fill',
         'coat-color'
@@ -26,7 +26,7 @@
 
   wizardEyes.addEventListener('click', function () {
     colorizeWizard(
-        window.util.RANDOM_EYES_COLOR,
+        window.constants.RANDOM_EYES_COLOR,
         wizardEyes,
         'fill',
         'eyes-color'
@@ -35,7 +35,7 @@
 
   fireballs.addEventListener('click', function () {
     colorizeWizard(
-        window.util.RANDOM_FIREBALL_COLOR,
+        window.constants.RANDOM_FIREBALL_COLOR,
         fireballs,
         'background',
         'fireball-color'

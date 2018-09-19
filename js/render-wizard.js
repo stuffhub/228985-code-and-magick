@@ -3,17 +3,17 @@
 (function () {
   var getListCharacters = function () {
     var arrayCharacters = [];
-    for (var i = 0; i < window.util.AMOUNT_OF_CHARACTER; i++) {
+    for (var i = 0; i < window.constants.AMOUNT_OF_CHARACTER; i++) {
       arrayCharacters.push({
         name:
-          window.util.getRandomArrayValue(window.util.RANDOM_NAMES) +
+          window.util.getRandomArrayValue(window.constants.RANDOM_NAMES) +
           ' ' +
-          window.util.getRandomArrayValue(window.util.RANDOM_SURNAMES),
+          window.util.getRandomArrayValue(window.constants.RANDOM_SURNAMES),
         coatColor: window.util.getRandomArrayValue(
-            window.util.RANDOM_COAT_COLORS
+            window.constants.RANDOM_COAT_COLORS
         ),
         eyesColor: window.util.getRandomArrayValue(
-            window.util.RANDOM_EYES_COLOR
+            window.constants.RANDOM_EYES_COLOR
         )
       });
     }

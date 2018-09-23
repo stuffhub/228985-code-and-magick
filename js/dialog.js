@@ -1,6 +1,10 @@
 'use strict';
 
 (function () {
+  var clickPreventDefaultHandler = function (evt) {
+    evt.preventDefault();
+    buttonDraggablePanel.removeEventListener('click', clickPreventDefaultHandler);
+  };
   var panelMouseDownHandler = function (evt) {
     evt.preventDefault();
     var startCoords = {
@@ -29,10 +33,6 @@
       document.removeEventListener('mousemove', panelMouseMoveHandler);
       document.removeEventListener('mouseup', panelMouseUpHandler);
       if (dragged) {
-        var clickPreventDefaultHandler = function (evt) {
-          evt.preventDefault();
-          buttonDraggablePanel.removeEventListener('click', clickPreventDefaultHandler);
-        };
         buttonDraggablePanel.addEventListener('click', clickPreventDefaultHandler);
       }
     };

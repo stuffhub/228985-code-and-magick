@@ -2,7 +2,7 @@
 
 (function () {
   var PANEL_DEFAULT_OFFSET_X = 952;
-  var PANEL_DEFAULT_OFFSET_Y = 80;
+  var PANEL_DEFAULT_OFFSET_Y = 15;
   var ENTER_KEYCODE = 13;
   var ESC_KEYCODE = 27;
   var AMOUNT_OF_CHARACTER = 4;

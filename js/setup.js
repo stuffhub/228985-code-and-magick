@@ -9,6 +9,8 @@
   var panelClose = function () {
     window.renderWizard.userPanel.classList.add('hidden');
     document.removeEventListener('keydown', panelEscCloseHandler);
+    window.renderWizard.userPanel.style.top = (window.constants.PANEL_DEFAULT_OFFSET_Y) + 'px';
+    window.renderWizard.userPanel.style.left = (window.constants.PANEL_DEFAULT_OFFSET_X) + 'px';
   };
 
   var panelSubmit = function () {

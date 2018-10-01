@@ -20,7 +20,7 @@
   };
 
   var formSubmit = function (evt) {
-    window.backend.save(new FormData(userPanelForm), function (data) {
+    window.backend.save(new FormData(userPanelForm), function () {
       window.renderWizard.userPanel.classList.add('hidden');
     }, window.backend.onErrorDialog);
     evt.preventDefault();

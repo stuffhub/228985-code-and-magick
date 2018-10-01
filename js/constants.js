@@ -42,7 +42,19 @@
     '#e848d5',
     '#e6e848'
   ];
-
+  var ErrorDialog = {
+    WIDTH: '800px',
+    HEIGHT: '250px',
+    BACKGROUND: '#89a1fd',
+    TEXT_ALIGN: 'center',
+    PADDING_TOP: '20px',
+    POSITION: 'absolute',
+    TOP: '80px',
+    LEFT: '50%',
+    COLOR: '#FFF',
+    Z_INDEX: '9999',
+    MARGIN_LEFT: -800 / 2 + 'px'
+  };
   window.constants = {
     AMOUNT_OF_CHARACTER: AMOUNT_OF_CHARACTER,
     RANDOM_NAMES: RANDOM_NAMES,
@@ -53,6 +65,7 @@
     ENTER_KEYCODE: ENTER_KEYCODE,
     ESC_KEYCODE: ESC_KEYCODE,
     PANEL_DEFAULT_OFFSET_X: PANEL_DEFAULT_OFFSET_X,
-    PANEL_DEFAULT_OFFSET_Y: PANEL_DEFAULT_OFFSET_Y
+    PANEL_DEFAULT_OFFSET_Y: PANEL_DEFAULT_OFFSET_Y,
+    ErrorDialog: ErrorDialog
   };
 })();

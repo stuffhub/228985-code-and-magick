@@ -13,14 +13,17 @@
     window.renderWizard.userPanel.style.left = (window.constants.PANEL_DEFAULT_OFFSET_X) + 'px';
   };
 
-  var panelSubmit = function () {
-    userPanelForm.submit();
-  };
-
   var panelEscCloseHandler = function (evt) {
     if (evt.keyCode === window.constants.ESC_KEYCODE) {
       panelClose();
     }
+  };
+
+  var formSubmit = function (evt) {
+    window.backend.save(new FormData(userPanelForm), function (data) {
+      window.renderWizard.userPanel.classList.add('hidden');
+    }, window.backend.onErrorDialog);
+    evt.preventDefault();
   };
 
   var userPanelOpen = document.querySelector('.setup-open-icon');
@@ -45,7 +48,13 @@
 
   userPanelSubmit.addEventListener('keydown', function (evt) {
     if (evt.keyCode === window.constants.ENTER_KEYCODE) {
-      panelSubmit();
+      formSubmit(evt);
     }
   });
+
+  userPanelForm.addEventListener('submit', formSubmit);
+
+  window.setup = {
+    userPanelForm: userPanelForm
+  };
 })();

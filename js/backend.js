@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  var createXhr = function (errorMessage, onSuccess, onError) {
+  var createXhr = function (onSuccess, onError, errorMessage) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
     xhr.addEventListener('load', function () {
@@ -25,13 +25,13 @@
   };
 
   var load = function (onSuccess, onError) {
-    var xhr = createXhr('Ошибка загрузки данных', onSuccess, onError);
+    var xhr = createXhr(onSuccess, onError, 'Ошибка загрузки данных');
     xhr.open('GET', listCharactersUrl);
     xhr.send();
   };
 
   var save = function (data, onSuccess, onError) {
-    var xhr = createXhr('Ошибка отправки данных', onSuccess, onError);
+    var xhr = createXhr(onSuccess, onError, 'Ошибка отправки данных');
     xhr.open('POST', uploadFormUrl);
     xhr.send(data);
   };
